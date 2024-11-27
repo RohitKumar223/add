@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>Number-1</label>
+        <input id="d1" type="text" autocomplete="off"><br><br>
+        <label>Number-2</label>
+        <input id="d2" type="text" autocomplete="off"><br><br>
+        <button type="button" onclick="add()">Add</button><br><br>
+        <label>Result:</label>
+        <input id="res" type="text"><br><br>
+    </form>
+    <script>
+        function add(){
+            let a=document.getElementById("d1").value
+            let b=document.getElementById("d2").value
+            // console.log(typeof(a))
+            let n=Number(a)
+            let m=Number(b)
+            console.log(typeof(n))
+            console.log(typeof(m))
+            let sum=n+m
+            document.getElementById("res").value=sum
+
+            document.getElementById("d1").value=""
+            document.getElementById("d2").value=""
+        }
+
+        document.getElementById("d1").addEventListener("keydown",function(msg){
+            if(msg.key=="ArrowDown"){
+                msg.preventDefault()
+                document.getElementById("d2").focus()
+            }
+
+        })
+
+        document.getElementById("d2").addEventListener("keydown",function(msg){
+            if(msg.key=="ArrowUp"){
+                msg.preventDefault()
+                document.getElementById("d1").focus()
+            }
+
+        })
+
+    </script>
+</body>
+</html>
